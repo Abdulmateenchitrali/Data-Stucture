@@ -1,0 +1,38 @@
+#include <stdio.h>
+int binarSearch(int arr[], int element, int total_size)
+{
+    int start, mid, end;
+    start = 0; //6
+     end = total_size - 1;
+    while (start <= end)
+    {     
+
+        mid = (start + end) / 2;
+        if (arr[mid] == element)
+        {
+            return mid;
+        }
+        if (arr[mid] < element)
+        {
+            start = mid + 1;
+        }
+        else
+        {
+            end = mid - 1;
+        }
+    }
+    return -1;
+}
+int main()
+{
+    int array[11] = {11, 22, 34, 35, 60, 65, 70, 75, 80, 85,90};
+    int element = 185;
+    int total_size = sizeof(array) / sizeof(int);
+    int index = binarSearch(array, element, total_size);
+    if(index==-1){
+        printf("Your element %d is not exist in the array",element);
+    }else{
+        printf("your element %d is exist at index %d", element, index);
+    }
+    return 0;
+}
